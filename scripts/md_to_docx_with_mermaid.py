@@ -65,7 +65,7 @@ def run_mermaid_cli(mermaid_code, output_image_path):
         subprocess.run(
             ["npx", "-y", "@mermaid-js/mermaid-cli", "-i", temp_mmd_path, "-o", output_image_path, "-b", "white", "-t", "default"],
             check=True,
-            shell=True, # Essencial pro npx ser puxado nas vars do PATH do Windows
+            shell=(platform.system() == "Windows"), # Essencial pro npx ser puxado nas vars do PATH do Windows
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL
         )
