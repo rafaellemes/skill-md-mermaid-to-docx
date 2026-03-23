@@ -21,6 +21,20 @@ When using this Skill, your environment needs the following dependencies:
 ### How it works
 The agent identifies the target `.md` file in your workspace and programmatically invokes the CLI command invoking the inner `scripts/md_to_docx_with_mermaid.py` with the absolute path of the target file. The Python script then handles the translation, diagram rendering via Mermaid, and produces the finalized Word document inside the target directory.
 
+### Installation
+To install this agentic Skill, download or clone this repository and place the `md-mermaid-to-docx` folder within your AI agent's skills directory.
+
+**For Antigravity Projects:**
+Antigravity features native auto-discovery for structured skills.
+- **Global Installation:** Place the folder in `~/.agents/skills/` (accessible across all projects).
+- **Local Installation:** Place the folder in `{.agents, .agent, _agents, _agent}/skills/` within your specific project space.
+The Antigravity engine will automatically parse the `SKILL.md` file and incorporate it into its capabilities.
+
+**For Claude Code Projects:**
+Claude Code currently does not feature native auto-discovery for skill folders like Antigravity does. To utilize this tool:
+- You must supply the directives mapped in `SKILL.md` directly into your Custom Instructions or context.
+- *Or*, wrap the `scripts/md_to_docx_with_mermaid.py` execution inside an MCP (Model Context Protocol) Server for Claude Code to access it as a specialized tool.
+
 ---
 
 <a id="portugues"></a>
@@ -37,3 +51,17 @@ Ao utilizar esta Skill, seu ambiente precisa das seguintes dependências:
 
 ### Como funciona
 O agente identifica o arquivo `.md` alvo no seu ambiente local e invoca programaticamente via linha de comando o script interno `scripts/md_to_docx_with_mermaid.py` repassando o caminho absoluto (*absolute path*) do arquivo alvo. O script Python em seguida orquestra toda a tradução, a renderização dos diagramas via Mermaid e compila o documento final do Word no diretório alvo original escolhido.
+
+### Instalação
+Para instalar essa Skill, faça o download ou clone este repositório e coloque a pasta `md-mermaid-to-docx` dentro do diretório de *skills* do seu agente de IA.
+
+**Para Projetos Antigravity:**
+O Antigravity possui suporte nativo à auto-descoberta dessas instruções.
+- **Instalação Global:** Coloque em `~/.agents/skills/` (disponível para todos os seus projetos do SO).
+- **Instalação Local:** Coloque em `{.agents, .agent, _agents, _agent}/skills/` dentro da raiz do seu projeto específico.
+O motor do Antigravity processará automaticamente o arquivo `SKILL.md` e passará a incorporar essa ferramenta dinamicamente.
+
+**Para Projetos Claude Code:**
+O Claude Code não suporta nativamente a leitura de arquivos em pastas pré-determinadas como o Antigravity. Para usá-lo com este modelo:
+- Forneça manualmente as diretrizes estritas transcritas no arquivo `SKILL.md` nas suas *Custom Instructions* ou contexto global.
+- *Ou*, encapsule a execução de `scripts/md_to_docx_with_mermaid.py` e exponha-o por meio de um Servidor MCP (Model Context Protocol) local para que a IA consiga acionar via MCP Client.
