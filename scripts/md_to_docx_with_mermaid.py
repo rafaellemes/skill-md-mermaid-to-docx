@@ -40,9 +40,9 @@ def check_and_install_dependencies():
             print(f"      [-] Falha no download padrão: {e}")
             print(f"      [+] Injetando requisição no Gerenciador de Pacotes do {current_os} (Fallback)...")
             if current_os == "Linux":
-                subprocess.run("sudo apt-get update && sudo apt-get install -y pandoc", shell=True)
+                subprocess.run("sudo apt-get update && sudo apt-get install -y pandoc", shell=False)
             elif current_os == "Darwin":
-                subprocess.run("brew install pandoc", shell=True)
+                subprocess.run("brew install pandoc", shell=False)
             elif current_os == "Windows":
                 subprocess.run("winget install --id JohnMacFarlane.Pandoc -e --accept-source-agreements --accept-package-agreements", shell=True)
             else:
